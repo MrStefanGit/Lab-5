@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>LAB 5 / Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Lab 5</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/'}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/login'}">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/signup'}">Sign Up</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{'/products'}">Products</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="align-center">
+    <div class="container">
+        <form th:action="@{/cart}" class="text-center" method="get">
+            <div class="row mb-3" style="border: darkgrey 2px solid; padding: 10px; margin-top: 20px;" th:each="product : ${cartProducts}">
+                <div class="col-sm">
+                    <label for="" th:text="${product.getKey().getName()}"></label>
+                </div>
+                <div class="col-sm">
+                    <label for="" th:text="${product.getKey().getPrice()}"></label>
+                </div>
+                <div class="col-sm">
+                    <label for="quantity">Quantity:</label>
+                    <input id="quantity" th:name="quantity" type="text" th:value="${product.getValue()}">
+                </div>
+            </div>
+            <div class="row mb-3" style="border: darkgrey 2px solid; padding: 10px; margin-top: 20px;">
+                <div class="col-sm"><h2>Total Price:</h2></div>
+                <div class="col-sm"><h2 th:text="${totalPrice}"></h2></div>
+                <div class="col-sm"></div>
+            </div>
+            <div class="form-group text-center" style="margin-top: 30px;">
+                <button type="submit" class="btn btn-secondary">Checkout</button>
+            </div>
+        </form>
+    </div>
+</section>
+<footer>
+
+</footer>
+</body>
+</html>

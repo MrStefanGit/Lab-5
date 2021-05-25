@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>LAB 5 / LogIn</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Lab 5</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/'}">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{'/login'}">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/signup'}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{'/products'}">Products</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="align-center">
+    <div style="margin: auto; width: 300px; padding-top: 100px;">
+        <div class="container">
+            <form method="post" name="loginForm" th:action="@{/login}">
+                <h1 class="h3 mb-4 fw-normal text-center">Please log in</h1>
+                <p class="text-danger text-center"></p>
+                <p class="text-danger text-center"></p>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input th:name="username" type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input th:name="password" type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                </div>
+                <button class="w-100 btn btn-lg btn-secondary" type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+
+
+
+</section>
+<footer>
+
+</footer>
+</body>
+</html>
